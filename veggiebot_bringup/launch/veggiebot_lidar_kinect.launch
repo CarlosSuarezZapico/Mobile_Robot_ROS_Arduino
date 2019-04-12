@@ -1,0 +1,11 @@
+<launch>
+
+  <!-- KINECT INTERFACE NODE -->
+        <include file="$(find freenect_launch)/launch/freenect.launch"/>
+        <include file="$(find depthimage_to_laserscan)/launch/kinect_laserscan.launch"/>
+        <param name="/depthimage_to_laserscan/scan_height" type="int" value="100" />
+        <param name="/depthimage_to_laserscan/range_min" type="double" value="0.8" />
+        <param name="/depthimage_to_laserscan/range_max" type="double" value="4" />
+
+
+</launch>

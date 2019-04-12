@@ -1,0 +1,20 @@
+<launch>
+
+  <!-- Import robot description URDF -->
+  <include file="$(find veggiebot_bringup)/launch/includes/description.launch.xml">
+  </include>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+  </node>
+
+  <!-- RVIZ-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find veggiebot_bringup)/launch/robot_test.rviz"/>
+
+  <!-- Robot Arduino Interface-->
+  <include file="$(find veggiebot_bringup)/launch/veggiebot_core.launch"/>
+  
+  <!-- ROBOT Kinect Interface-->
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0.05995 0 0.555 -1.57 0 0 /base_link /laser  1000" />
+  <!-- RPLIDAR-->
+  <include file="$(find rplidar_ros)/launch/rplidar.launch"/>  
+
+</launch>

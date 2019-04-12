@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find veggiebot_bringup)/launch/includes/description.launch.xml">
+        </include>
+	<param name="use_gui" value="True"/>
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find veggie_urdf)/launch/veggie_conf.rviz" required="true" />
+</launch>

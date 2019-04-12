@@ -1,0 +1,7 @@
+image: /home/robot/catkin_ws/src/veggiebot/veggiebot_navigation/maps/mapa_26_09_18.pgm
+resolution: 0.030000
+origin: [-9.990000, -9.990000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

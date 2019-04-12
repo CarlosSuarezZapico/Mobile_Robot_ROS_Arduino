@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>veggiebot_description</name>
+  <version>0.1.6</version>
+  <description>
+    3D model of the veggiebot for simulation and visualization
+  </description>
+  <license>Apache License 2.0</license>
+  <author email="veggiebotceit@gmail.com">Carlos</author>
+  <maintainer email="veggiebotceit@gmail.com">Carlos</maintainer>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+</package>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <name>veggiebot_localization</name>
+  <version>0.1.6</version>
+  <description>
+    The veggiebot_localization package is used to watch how good the program is determining the current pose and odometry of the robot
+  </description>
+  <license>Apache License 2.0</license>
+  <author email="veggiebotceit@gmail.com">Carlos</author>
+  <maintainer email="veggiebotceit@gmail.com">Carlos</maintainer>
+ 
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>veggiebot_bringup</run_depend>
+</package>

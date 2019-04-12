@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>veggiebot_slam</name>
+  <version>0.1.6</version>
+  <description>
+    The veggiebot_slam package provides roslaunch scripts for starting the SLAM
+  </description>
+  <license>Apache License 2.0</license>
+  <author email="veggiebotceit@gmail.com">Carlos</author>
+  <maintainer email="veggiebotceit@gmail.com">Carlos</maintainer>
+ 
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>veggiebot_bringup</run_depend>
+  <run_depend>gmapping</run_depend>
+</package>

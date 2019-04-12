@@ -1,0 +1,11 @@
+<launch>
+
+  <!-- KINECT INTERFACE NODE -->
+        <include file="$(find realsense2_camera)/launch/rs_rgbd.launch"/>
+        <include file="$(find depthimage_to_laserscan)/launch/realsense.launch"/>
+        <param name="/depthimage_to_laserscan/scan_height" type="int" value="100" />
+        <param name="/depthimage_to_laserscan/range_min" type="double" value="0.3" />
+        <param name="/depthimage_to_laserscan/range_max" type="double" value="2" />
+
+
+</launch>

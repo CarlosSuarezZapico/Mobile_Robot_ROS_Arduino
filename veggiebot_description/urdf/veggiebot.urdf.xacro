@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<robot name="veggiebot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find veggiebot_description)/urdf/common_properties.xacro"/>
+
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.0375" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://veggiebot_description/meshes/Visuals/base_link.stl"/>
+      </geometry>
+        <material name="orange">
+          <color rgba="0.84 0.35 0 1"/>
+        </material> 
+    </visual>
+  </link>
+
+  <link name="second_link">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://veggiebot_description/meshes/Visuals/second_level.stl"/>
+      </geometry>
+        <material name="black">
+          <color rgba="0.1 0.1 0.1 1"/>
+         </material>
+    </visual>
+  </link>
+  
+  <joint name="fixed_joint_1" type="fixed">
+    <parent link="base_link"/>
+    <child link="second_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+   </joint>
+
+  <link name="third_link">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://veggiebot_description/meshes/Visuals/second_level_2.stl"/>
+      </geometry>
+        <material name="blue">
+          <color rgba="0.18 0.18 0.95 1"/>
+         </material>
+    </visual>
+  </link>
+ 
+  <joint name="fixed_joint_2" type="fixed">
+    <parent link="second_link"/>
+    <child link="third_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+   </joint>
+
+  <link name="fourth_link">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://veggiebot_description/meshes/Visuals/second_level_3.stl"/>
+      </geometry>
+        <material name="blue">
+         </material>
+    </visual>
+  </link>
+
+  <joint name="fixed_joint_3" type="fixed">
+    <parent link="third_link"/>
+    <child link="fourth_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+   </joint>
+
+  <link name="fifth_link">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://veggiebot_description/meshes/Visuals/third_level_2.stl"/>
+      </geometry>
+        <material name="blue">
+         </material>
+    </visual>
+  </link>
+
+ <joint name="fixed_joint_4" type="fixed">
+    <parent link="fourth_link"/>
+    <child link="fifth_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+   </joint>
+
+ <link name="sixth_link">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://veggiebot_description/meshes/Visuals/third_level.stl"/>
+      </geometry>
+        <material name="orange">
+         </material>
+    </visual>
+  </link>
+
+ <joint name="fixed_joint_5" type="fixed">
+    <parent link="fifth_link"/>
+    <child link="sixth_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+   </joint>
+
+<link name="battery">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://veggiebot_description/meshes/Visuals/battery.stl"/>
+      </geometry>
+        <material name="red">
+           <color rgba="0.95 0.18 0.18 1"/>
+         </material>
+    </visual>
+  </link>
+
+ <joint name="fixed_joint_6" type="fixed">
+    <parent link="sixth_link"/>
+    <child link="battery"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+   </joint>
+
+  <link name="kinect">
+  <visual>
+   <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry> 
+      <mesh filename="package://veggiebot_description/meshes/Visuals/kinect.dae"/>
+    </geometry>
+  </visual>
+  </link>
+
+<joint name="fixed_joint_kinect" type="fixed">
+    <parent link="base_link"/>
+    <child link="kinect"/>
+    <origin xyz="0.05995 0 0.555" rpy="0 0 1.57"/>
+   </joint>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="-0.025 0.04 0.1725" rpy="0 0 3.14"/>
+  </joint>
+
+  <link name="imu_link"/>
+
+   <joint name="wheel_left_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_left"/>
+    <origin xyz="0.0 0.114 0.03" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="wheel_left">
+    <visual>
+      <origin xyz="0 0 0" rpy="-1.57 0 0"/>
+      <geometry>
+        <mesh filename="package://veggiebot_description/meshes/Visuals/wheel_left.stl"/>
+      </geometry>
+       <material name="grey">
+          <color rgba="0.2 0.2 0.2 1"/>
+         </material>
+    </visual>
+  </link>
+
+  <joint name="wheel_right_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_right"/>
+    <origin xyz="0.0 -0.114 0.03" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="wheel_right">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.57 0 0"/>
+      <geometry>
+        <mesh filename="package://veggiebot_description/meshes/Visuals/wheel_right.stl"/>
+      </geometry>
+      <material name="grey">
+          <color rgba="0.2 0.2 0.2 1"/>
+         </material>
+    </visual>
+  </link>
+
+
+
+</robot>

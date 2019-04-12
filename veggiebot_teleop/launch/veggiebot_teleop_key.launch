@@ -1,0 +1,6 @@
+<launch>
+  <!-- veggiebot_teleop_key already has its own built in velocity smoother -->
+  <node pkg="veggiebot_teleop" type="veggiebot_teleop_key" name="veggiebot_teleop"  output="screen">
+  </node>
+
+</launch>

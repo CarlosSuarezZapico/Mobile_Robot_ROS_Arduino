@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>veggiebot_teleop</name>
+  <version>0.1.6</version>
+  <description>
+    Provides teleoperation using keyboard for veggiebot.
+  </description>
+  <author email="veggiebotceit@gmail.com">Carlos</author>
+  <maintainer email="veggiebotceit@gmail.com">Carlos</maintainer>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+</package>

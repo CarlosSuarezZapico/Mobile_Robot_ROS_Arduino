@@ -1,0 +1,23 @@
+<launch>
+
+  <!-- Import robot description URDF -->
+  <include file="$(find veggiebot_bringup)/launch/includes/description.launch.xml">
+  </include>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+  </node>
+
+  <!-- RVIZ-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find veggiebot_bringup)/launch/robot_test.rviz"/>
+
+  <!-- Robot Arduino Interface-->
+  <include file="$(find veggiebot_bringup)/launch/veggiebot_core.launch"/>
+  
+  <!-- ROBOT Kinect Interface-->
+   <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0.05995 0 0.555 0 0 0 /base_link /camera_depth_frame  1000" />
+  
+<include file="$(find veggiebot_bringup)/launch/veggiebot_lidar_kinect.launch"/>
+  <param name="/depthimage_to_laserscan/scan_height" type="int" value="100" />
+   <param name="/depthimage_to_laserscan/range_min" type="double" value="0.8" />
+   <param name="/depthimage_to_laserscan/range_max" type="double" value="7" />
+
+</launch>
