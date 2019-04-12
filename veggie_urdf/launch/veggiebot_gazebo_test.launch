@@ -1,0 +1,24 @@
+
+<launch>
+
+	<param name="robot_description" command="cat '$(find veggie_urdf)/urdf/veggiebot_gazebo_test.urdf'" />
+         
+        <arg name="x_pos" default="0"/>
+        <arg name="y_pos" default="0"/>
+        <arg name="z_pos" default="0"/>
+
+	<node name="veggiebot_sim" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model veggiebot -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)" />
+        
+        <include file="$(find gazebo_ros)/launch/empty_world.launch">
+         <arg name="world_name" value="$(find turtlebot3_gazebo)/models/empty.world"/>
+         <arg name="paused" value="false"/>
+         <arg name="use_sim_time" value="true"/>
+         <arg name="gui" value="true"/>
+         <arg name="headless" value="false"/>
+         <arg name="debug" value="false"/>
+        </include>
+
+         
+        
+</launch>
+

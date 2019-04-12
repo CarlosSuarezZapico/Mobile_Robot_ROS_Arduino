@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<robot name="veggiebot">
+
+ <link name="BODY">
+  <visual>
+   <origin rpy="0 0 0" xyz="0 0 0.195"/>
+    <geometry> 
+      <cylinder length="0.320" radius="0.150"/>
+    </geometry>
+      <material name="orange">
+          <color rgba="0.84 0.35 0 1"/>
+       </material>   
+    <collision>
+  <origin rpy="0 0 0" xyz="0 0 0.317"/>
+   <geometry>
+      <cylinder length="0.634" radius="0.225"/>
+  </geometry>
+      <material name="green">
+          <color rgba="0 0.61 0.1 0.3"/>
+  </material>
+</collision>
+</visual>
+ </link>
+ 
+ <link name="RWHEEL">
+    <visual>
+     <origin rpy="1.5708 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.024" radius="0.0675"/>       
+      </geometry>
+        <material name="black">
+          <color rgba="0 0 0 1"/>
+         </material>
+    </visual>
+  </link>
+ 
+<link name="LWHEEL">
+      <visual>
+     <origin rpy="1.5708 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.024" radius="0.0675"/>
+      </geometry>
+        <material name="black">
+         </material>
+    </visual>
+  </link>
+ 
+<link name="KINECT_CONNECTOR">
+      <visual>
+     <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.03"/>
+      </geometry>
+          <material name="orange">
+         </material>
+    </visual>
+  </link>
+
+ <link name="KINECT">
+  <visual>
+   <origin rpy="0 0 1.5708" xyz="0 0 0.035"/>
+    <geometry> 
+      <mesh filename="package://veggie_urdf/meshes/kinect.dae"/>
+    </geometry>
+  </visual>
+ </link>
+
+<joint name="Body2Rwheel" type="continuous">
+    <origin rpy="0 0 0"  xyz="0 0.15 0.0675"/>
+    <parent link="BODY"/>
+    <child link="RWHEEL"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+<joint name="Body2Lwheel" type="continuous">
+    <origin rpy="0 0 0"  xyz="0 -0.15 0.0675"/>
+    <parent link="BODY"/>
+    <child link="LWHEEL"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+<joint name="Body2Connector" type="fixed">
+    <origin rpy="0 0 0"  xyz="0.105 0 0.455"/>
+    <parent link="BODY"/>
+    <child link="KINECT_CONNECTOR"/>
+  </joint>
+
+<joint name="Connector2Kinect" type="fixed">
+    <origin rpy="0 0 0"  xyz="0 0 0.1"/>
+    <parent link="KINECT_CONNECTOR"/>
+    <child link="KINECT"/>
+  </joint>
+</robot>

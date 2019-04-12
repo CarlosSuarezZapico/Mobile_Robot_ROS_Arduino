@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<robot name="medusa">
+
+ <link name="BODY">
+  <visual>
+   <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry> 
+       <box size="0.3 0.1 0.4"/>
+    </geometry>
+  </visual>
+ </link>
+
+ <link name="RLEG_J0">
+  <visual>
+   <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry> 
+      <cylinder length="0.1" radius="0.02"/>
+    </geometry>
+      <material name="white"/>
+  </visual>
+ </link>
+ 
+ <link name="LLEG_J0">
+    <visual>
+     <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.02"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+ 
+<link name="RLEG_J1">
+    <visual>
+     <origin rpy="0 1.571 0" xyz="0 0 -0.05"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.02"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+   </link>
+
+<link name="LLEG_J1">
+    <visual>
+     <origin rpy="0 1.571 0" xyz="0 0 -0.05"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.02"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+   </link>
+
+<link name="RLEG_J2">
+    <visual>
+     <origin rpy="1.571 0 0" xyz="0 0 -0.05"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.02"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+   </link>
+
+<link name="LLEG_J2">
+    <visual>
+     <origin rpy="1.571 0 0" xyz="0 0 -0.05"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.02"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+   </link>
+
+<link name="RLEG_J2_J3">
+  <visual>
+   <origin rpy="0 0 0" xyz="0 0 -0.20"/>
+    <geometry> 
+       <box size="0.07 0.02 0.3"/>
+    </geometry>
+  </visual>
+ </link>
+
+<link name="LLEG_J2_J3">
+  <visual>
+   <origin rpy="0 0 0" xyz="0 0 -0.20"/>
+    <geometry> 
+       <box size="0.07 0.02 0.3"/>
+    </geometry>
+  </visual>
+ </link>
+
+<link name="RLEG_J3">
+    <visual>
+     <origin rpy="0 1.571 0" xyz="0 0 0"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.02"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+   </link>
+
+<link name="LLEG_J3">
+    <visual>
+     <origin rpy="0 1.571 0" xyz="0 0 0"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.02"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+   </link>
+
+<link name="RLEG_J3_J4">
+  <visual>
+   <origin rpy="0 0 0" xyz="0 0 -0.15"/>
+    <geometry> 
+       <box size="0.07 0.02 0.3"/>
+    </geometry>
+  </visual>
+ </link>
+
+<link name="LLEG_J3_J4">
+  <visual>
+   <origin rpy="0 0 0" xyz="0 0 -0.15"/>
+    <geometry> 
+       <box size="0.07 0.02 0.3"/>
+    </geometry>
+  </visual>
+ </link>
+
+<link name="RLEG_J4">
+  <visual>
+   <origin rpy="0 1.571 0" xyz="0 0 0"/>
+    <geometry> 
+      <cylinder length="0.1" radius="0.02"/>
+    </geometry>
+      <material name="white"/>
+  </visual>
+ </link>
+
+<link name="LLEG_J4">
+  <visual>
+   <origin rpy="0 1.571 0" xyz="0 0 0"/>
+    <geometry> 
+       <cylinder length="0.1" radius="0.02"/>
+    </geometry>
+      <material name="white"/>
+  </visual>
+ </link>
+
+<link name="RLEG_J5">
+  <visual>
+   <origin rpy="1.571 0 0" xyz="0 0 0"/>
+    <geometry> 
+      <cylinder length="0.1" radius="0.02"/>
+    </geometry>
+      <material name="white"/>
+  </visual>
+ </link>
+
+<link name="LLEG_J5">
+  <visual>
+   <origin rpy="1.571 0 0" xyz="0 0 0"/>
+    <geometry> 
+       <cylinder length="0.1" radius="0.02"/>
+    </geometry>
+      <material name="white"/>
+  </visual>
+ </link>
+
+<link name="RLEG_FOOT">
+  <visual>
+   <origin rpy="1.571 0 0" xyz="0 0 -0.04"/>
+    <geometry> 
+       <box size="0.1 0.01 0.2"/>
+    </geometry>
+  </visual>
+ </link>
+
+<link name="LLEG_FOOT">
+  <visual>
+   <origin rpy="1.571 0 0" xyz="0 0 -0.04"/>
+    <geometry> 
+       <box size="0.1 0.01 0.2"/>
+    </geometry>
+  </visual>
+ </link>
+
+<joint name="body_rleg_j0" type="revolute">
+    <origin rpy="0 0 0"  xyz="0.15 0 -0.2"/>
+    <parent link="BODY"/>
+    <child link="RLEG_J0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="-3.1415" upper="3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="body_lleg_j0" type="revolute">
+    <origin rpy="0 0 0"  xyz="-0.15 0 -0.2"/>
+    <parent link="BODY"/>
+    <child link="LLEG_J0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="-3.1415" upper="3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="rleg_j0_rleg_j1" type="fixed">
+    <parent link="RLEG_J0"/>
+    <child link="RLEG_J1"/>
+  </joint>
+
+<joint name="lleg_j0_lleg_j1" type="fixed">
+    <parent link="LLEG_J0"/>
+    <child link="LLEG_J1"/>
+  </joint>
+
+<joint name="rleg_j1_rleg_j2" type="revolute">
+    <origin rpy="0 0 0"  xyz="0 0 0"/>
+    <parent link="RLEG_J1"/>
+    <child link="RLEG_J2"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" lower="3.1415" upper="-3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="lleg_j1_lleg_j2" type="revolute">
+    <origin rpy="0 0 0"  xyz="0 0 0"/>
+    <parent link="LLEG_J1"/>
+    <child link="LLEG_J2"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" lower="3.1415" upper="-3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="rleg_j2_rleg_j2_j3" type="fixed">
+    <parent link="RLEG_J2"/>
+    <child link="RLEG_J2_J3"/>
+  </joint>
+
+<joint name="lleg_j2_lleg_j2_j3" type="fixed">
+    <parent link="LLEG_J2"/>
+    <child link="LLEG_J2_J3"/>
+  </joint>
+
+<joint name="rleg_j2_j3_rleg_j3" type="revolute">
+    <origin rpy="0 0 0"  xyz="0 0 -0.35"/>
+    <parent link="RLEG_J2_J3"/>
+    <child link="RLEG_J3"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="3.1415" upper="-3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="lleg_j2_j3_lleg_j3" type="revolute">
+    <origin rpy="0 0 0"  xyz="0 0 -0.35"/>
+    <parent link="LLEG_J2_J3"/>
+    <child link="LLEG_J3"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="3.1415" upper="-3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="rleg_j3_rleg_j3_j4" type="fixed">
+    <parent link="RLEG_J3"/>
+    <child link="RLEG_J3_J4"/>
+  </joint>
+
+<joint name="lleg_j3_lleg_j3_j4" type="fixed">
+    <parent link="LLEG_J3"/>
+    <child link="LLEG_J3_J4"/>
+  </joint>
+
+<joint name="rleg_j3_j4_rleg_j4" type="revolute">
+    <origin rpy="0 0 0"  xyz="0 0 -0.3"/>
+    <parent link="RLEG_J3_J4"/>
+    <child link="RLEG_J4"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="3.1415" upper="-3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="lleg_j3_j4_lleg_j4" type="revolute">
+    <origin rpy="0 0 0"  xyz="0 0 -0.3"/>
+    <parent link="LLEG_J3_J4"/>
+    <child link="LLEG_J4"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="3.1415" upper="-3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="rleg_j4_rleg_j5" type="revolute">
+    <origin rpy="0 0 0"  xyz="0 0 0"/>
+    <parent link="RLEG_J4"/>
+    <child link="RLEG_J5"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" lower="3.1415" upper="-3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="lleg_j4_lleg_j5" type="revolute">
+    <origin rpy="0 0 0"  xyz="0 0 0"/>
+    <parent link="LLEG_J4"/>
+    <child link="LLEG_J5"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" lower="3.1415" upper="-3.1415" velocity="4.36"/>
+  </joint>
+
+<joint name="rleg_j5_rleg_foot" type="fixed">
+    <parent link="RLEG_J5"/>
+    <child link="RLEG_FOOT"/>
+  </joint>
+
+<joint name="lleg_j5_lleg_foot" type="fixed">
+    <parent link="LLEG_J5"/>
+    <child link="LLEG_FOOT"/>
+  </joint>
+</robot>

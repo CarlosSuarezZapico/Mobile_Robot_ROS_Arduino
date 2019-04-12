@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<robot name="medusa">
+
+ <link name="BODY">
+  <visual>
+   <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry> 
+       <box size="0.3 0.1 0.4"/>
+    </geometry>
+  </visual>
+ </link>
+
+ <link name="RLEG_J0">
+  <visual>
+   <origin rpy="0 1.571 0" xyz="0.15 0 -0.2"/>
+    <geometry> 
+      <cylinder length="0.1" radius="0.01"/>
+    </geometry>
+  </visual>
+ </link>
+ 
+ <link name="LLEG_J0">
+    <visual>
+     <origin rpy="0 1.571 0" xyz="-0.15 0 -0.2"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+ 
+<link name="RLEG_J1">
+    <visual>
+     <origin rpy="0 0 1.571" xyz="0.15 0 -0.3"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.01"/>
+      </geometry>
+    </visual>
+   </link>
+
+<link name="LLEG_J1">
+    <visual>
+     <origin rpy="0 0 1.571" xyz="-0.15 0 -0.3"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.01"/>
+      </geometry>
+    </visual>
+   </link>
+
+<link name="RLEG_J2">
+    <visual>
+     <origin rpy="0 0 0" xyz="0.15 0 -0.3"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.01"/>
+      </geometry>
+    </visual>
+   </link>
+
+<link name="LLEG_J2">
+    <visual>
+     <origin rpy="0 0 0" xyz="-0.15 0 -0.3"/>
+      <geometry>
+       <cylinder length="0.1" radius="0.01"/>
+      </geometry>
+    </visual>
+   </link>
+
+<link name="RLEG_J2_J3">
+  <visual>
+   <origin rpy="0 0 0" xyz="0.15 0 -0.46"/>
+    <geometry> 
+       <box size="0.1 0.02 0.3"/>
+    </geometry>
+  </visual>
+ </link>
+
+<link name="LLEG_J2_J3">
+  <visual>
+   <origin rpy="0 0 0" xyz="-0.15 0 -0.46"/>
+    <geometry> 
+       <box size="0.1 0.02 0.3"/>
+    </geometry>
+  </visual>
+ </link>
+
+<link name="RLEG_J2_J3">
+  <visual>
+   <origin rpy="0 0 0" xyz="0.15 0 -0.46"/>
+    <geometry> 
+       <box size="0.1 0.02 0.3"/>
+    </geometry>
+  </visual>
+ </link>
+
+  <joint name="base_to_kinect" type="fixed">
+    <parent link="base"/>
+    <child link="kinect_sensor"/>
+  </joint>
+
+  <joint name="base_to_webcam_servo_v" type="fixed">
+    <parent link="base"/>
+    <child link="webcam_servo_v"/>
+  </joint>
+
+  <joint name="joint_servo_v" type="revolute">
+    <origin rpy="0 0 0"  xyz="-0.035 0.030 0.147"/>
+    <parent link="webcam_servo_v"/>
+    <child link="webcam_servo_h"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0" lower="-3.1415" upper="3.1415" velocity="4.36"/>
+  </joint>
+ 
+ <joint name="joint_servo_h" type="revolute">
+    <origin rpy="0 0 0" xyz="0 -0.0125 0.03"/>
+    <parent link="webcam_servo_h"/>
+    <child link="webcam_part_1"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0" lower="-3.1415" upper="3.1415" velocity="4.36"/>
+  </joint>
+ 
+ <joint name="webcam" type="fixed">
+    <parent link="webcam_part_1"/>
+    <child link="webcam_part_2"/>
+  </joint>
+
+</robot>

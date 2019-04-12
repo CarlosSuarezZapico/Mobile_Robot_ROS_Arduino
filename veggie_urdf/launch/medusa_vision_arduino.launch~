@@ -1,0 +1,11 @@
+<launch>
+	<param name="robot_description" textfile="$(find medusa)/urdf/medusa_robot.urdf" />
+	<param name="use_gui" value="True"/>
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find medusa)/medusa_rviz_config.rviz" required="true" />       
+        <include file="$(find freenect_launch)/launch/freenect.launch" />
+        <node name="kinect_aux_node" pkg="kinect_aux" type="kinect_aux" />
+        <node name="image_view" pkg="image_view" type="image_view" /> 
+        <param name="image" value="/camera/depth/image"/>
+</launch>

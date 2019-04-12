@@ -1,0 +1,11 @@
+<launch>
+<param name="/use_sim_time" value="true" />
+<include file="$(find gazebo_worlds)/launch/empty_world.launch"/>
+<arg name="model" />
+<param name="robot_description" textfile="$(find abb_irb120_boligrafo_support)/urdf/irb120_con_efector_final.xacro" />
+<node name="joint_state_publisher" pkg="joint_state_publisher"type="joint_state_publisher" />
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+<param name="publish_frequency" type="double" value="50.0" />
+<node name="spawn_robot" pkg="gazebo" type="spawn_model"  respawn="false" output="screen" />
+</launch>
+
