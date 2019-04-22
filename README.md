@@ -8,4 +8,3 @@ Code needed to program a robot with an Arduino low based controller in ROS to us
 
 ![alt text](https://github.com/CarlosSuarezZapico/Mobile_Robot_ROS_Arduino/blob/master/Images/robots3.jpg)
 
-![alt text](https://github.com/CarlosSuarezZapico/Mobile_Robot_ROS_Arduino/blob/master/Images/robots4.JPG)
